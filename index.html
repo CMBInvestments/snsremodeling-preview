@@ -1,0 +1,406 @@
+<title>S&S Home Remodeling</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap">
+<style id="css">
+/* Layout concept: a builder's tape-measure site. Ruler ticks mark section edges, big grotesque type, photos carry the page. */
+:root{
+  --bg:#F2F3F0; --surface:#FFFFFF; --ink:#12202B; --muted:#5A6670; --line:#CDD2CE; --accent:#D99A1E; --accent-ink:#12202B; --soft:#E5E8E4;
+  --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --body:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+  --mono:"DM Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0D161D; --surface:#16222B; --ink:#EDF0EC; --muted:#9AA7B0; --line:#2B3A45; --accent:#E8B23F; --accent-ink:#0D161D; --soft:#1B2A34; color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0D161D; --surface:#16222B; --ink:#EDF0EC; --muted:#9AA7B0; --line:#2B3A45; --accent:#E8B23F; --accent-ink:#0D161D; --soft:#1B2A34; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;padding-block:0}
+.wrap{max-width:1180px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);line-height:1.04;margin:0;text-wrap:balance;letter-spacing:-.02em}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.mono{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.ruler{height:12px;background:linear-gradient(90deg,var(--muted) 1px,transparent 1px) 0 100%/60px 12px repeat-x,linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 100%/12px 6px repeat-x}
+
+/* header */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:20px;padding-block:12px}
+.brand{display:flex;align-items:baseline;gap:10px;text-decoration:none;margin-right:auto}
+.brand b{font-family:var(--display);font-weight:800;font-size:28px;letter-spacing:-.04em}
+.brand span{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);line-height:1.2}
+.nav{display:flex;gap:22px}
+.nav a{text-decoration:none;font-weight:500;font-size:15px;padding-block:6px;border-bottom:2px solid transparent}
+.nav a:hover{border-color:var(--accent)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:10px 20px;border:2px solid var(--ink);background:transparent;color:var(--ink);font:600 15px var(--body);text-decoration:none;cursor:pointer;border-radius:3px}
+.btn:hover{background:var(--soft)}
+.btn.solid{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.solid:hover{filter:brightness(1.06)}
+.btn.small{min-height:36px;padding:6px 12px;font-size:14px}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+
+/* hero */
+.hero{padding-block:clamp(28px,5vw,64px) clamp(32px,5vw,56px)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,56px);align-items:center}
+.hero h1{font-size:clamp(44px,7vw,92px);font-weight:800}
+.hero h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--accent) 62% 92%,transparent 92%)}
+.hero .lede{font-size:clamp(17px,2vw,20px);max-width:34em;margin-top:22px;color:var(--muted)}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.hero .meta{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:30px}
+.frame{position:relative;aspect-ratio:4/5;background:var(--soft);border:1px solid var(--line);overflow:hidden;max-width:100%}
+.frame img{width:100%;height:100%;object-fit:cover;display:block}
+.frame .dim{position:absolute;left:14px;bottom:12px;background:var(--bg);padding:3px 8px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.ph{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:20px;color:var(--muted);
+  background:linear-gradient(var(--line) 1px,transparent 1px) 0 0/32px 32px,linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/32px 32px,var(--soft)}
+.ph span{background:var(--soft);padding:4px 10px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+
+/* sections */
+section{padding-block:clamp(44px,7vw,88px)}
+.head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px 32px;margin-bottom:clamp(24px,4vw,40px)}
+.head h2{font-size:clamp(34px,5vw,58px);font-weight:700;max-width:14em}
+.head p{max-width:30em;color:var(--muted)}
+
+.services{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+.svc{background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column;min-width:0}
+.svc .frame{aspect-ratio:4/3;border:0;border-bottom:1px solid var(--line)}
+.svc .txt{padding:18px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.svc h3{font-size:24px;font-weight:700}
+.svc p{font-size:15.5px;color:var(--muted)}
+.svc .link{margin-top:auto;padding-top:8px;background:none;border:0;font:600 15px var(--body);color:var(--ink);text-align:left;cursor:pointer;text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:3px;text-underline-offset:5px;width:fit-content}
+
+/* work */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.chip{min-height:40px;padding:6px 16px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font:500 14.5px var(--body);border-radius:999px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.grid{columns:3 280px;column-gap:14px}
+.shot{break-inside:avoid;margin:0 0 14px;position:relative;background:var(--soft)}
+.shot button{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in}
+.shot img{display:block;width:100%;height:auto}
+.shot figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 12px 10px;color:#fff;background:linear-gradient(transparent,rgba(8,14,20,.78));font-size:14px;pointer-events:none}
+.shot figcaption b{font-weight:600;display:block}
+.shot figcaption span{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+.empty{border:2px dashed var(--line);padding:clamp(28px,6vw,64px);text-align:center;display:grid;gap:14px;justify-items:center}
+.empty h3{font-size:28px}
+.empty p{color:var(--muted);max-width:30em}
+
+/* about */
+.about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:start}
+.about p+p{margin-top:16px}
+.checks{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:0;border-top:1px solid var(--line)}
+.checks li{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);font-weight:500}
+.checks li::before{content:"";width:12px;height:12px;background:var(--accent);flex:none}
+.steps{display:grid;gap:0;border-top:2px solid var(--ink);counter-reset:s}
+.step{display:grid;grid-template-columns:64px 1fr;gap:6px 14px;padding:20px 0;border-bottom:1px solid var(--line)}
+.step .n{font-family:var(--mono);font-size:14px;color:var(--muted);padding-top:6px}
+.step h3{font-size:26px;font-weight:700}
+.step p{grid-column:2;color:var(--muted)}
+
+/* contact */
+.contact{background:var(--ink);color:var(--bg)}
+.contact .mono{color:color-mix(in srgb,var(--bg) 65%,transparent)}
+.contact .head p{color:color-mix(in srgb,var(--bg) 75%,transparent)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.card{border:1px solid color-mix(in srgb,var(--bg) 28%,transparent);padding:22px;display:grid;gap:10px;align-content:start;min-width:0}
+.card .val{font-family:var(--display);font-weight:700;font-size:clamp(24px,3vw,32px);letter-spacing:-.02em;overflow-wrap:anywhere;line-height:1.1}
+.card .row{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.contact .btn{border-color:var(--bg);color:var(--bg)}
+.contact .btn:hover{background:color-mix(in srgb,var(--bg) 14%,transparent)}
+.contact .btn.solid{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+footer{padding-block:28px 40px;border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-between;font-size:14px;color:var(--muted)}
+footer a{text-underline-offset:3px}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(24px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:10px 16px;font-size:14px;z-index:60;border-radius:3px;max-width:calc(100% - 32px)}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:50;background:rgba(6,10,14,.94);display:grid;grid-template-rows:1fr auto;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));gap:12px}
+.lb img{max-width:100%;max-height:100%;object-fit:contain;margin:auto;display:block;min-height:0}
+.lb .stage{min-height:0;display:grid}
+.lb .bar{display:flex;gap:10px;align-items:center;justify-content:space-between;color:#fff;flex-wrap:wrap}
+.lb .btn{border-color:#fff;color:#fff}
+.lb .btn:hover{background:rgba(255,255,255,.14)}
+
+/* photo editor (visible only to editors) */
+.editfab{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:40;box-shadow:0 6px 24px rgba(0,0,0,.28);background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.panel{position:fixed;right:0;bottom:0;top:auto;width:min(460px,100%);max-height:86vh;z-index:45;background:var(--surface);border:1px solid var(--line);box-shadow:0 -8px 40px rgba(0,0,0,.3);display:grid;grid-template-rows:auto 1fr auto;padding-bottom:env(safe-area-inset-bottom,0px)}
+.panel header{padding:16px max(16px,env(safe-area-inset-right,0px)) 12px 16px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:12px}
+.panel header h3{font-size:22px}
+.panel .body{overflow:auto;padding:16px max(16px,env(safe-area-inset-right,0px)) 16px 16px;display:grid;gap:16px;align-content:start}
+.panel .foot{padding:12px max(16px,env(safe-area-inset-right,0px)) 12px 16px;border-top:1px solid var(--line);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.drop{border:2px dashed var(--muted);padding:22px 16px;text-align:center;display:grid;gap:10px;justify-items:center;background:var(--bg)}
+.drop.over{border-color:var(--accent);background:var(--soft)}
+.drop input[type=file]{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+label.f{display:grid;gap:4px;font-size:13.5px;font-weight:600}
+select,input[type=text]{font:400 15px var(--body);color:var(--ink);background:var(--surface);border:1.5px solid var(--line);padding:8px 10px;min-height:40px;border-radius:3px;width:100%;min-width:0}
+.items{display:grid;gap:10px}
+.item{display:grid;grid-template-columns:84px 1fr;gap:12px;padding:10px;border:1px solid var(--line);background:var(--bg);min-width:0}
+.item img{width:84px;height:84px;object-fit:cover;display:block}
+.item .ctl{display:grid;gap:6px;min-width:0}
+.item .acts{display:flex;gap:6px;flex-wrap:wrap}
+.status{font-size:14px;color:var(--muted);flex:1 1 100%}
+.status.err{color:#C2362B}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .status.err{color:#FF8A7E}}
+:root[data-theme="dark"] .status.err{color:#FF8A7E}
+
+@media (max-width:820px){
+  .nav{display:none}
+  .hero .wrap,.about .wrap{grid-template-columns:1fr}
+  .frame{aspect-ratio:4/3}
+  .brand span{display:none}
+}
+@media (prefers-reduced-motion:no-preference){.shot img,.svc .frame img{transition:transform .5s ease}.shot:hover img{transform:scale(1.02)}}
+</style>
+<div id="app"></div>
+<div id="panel"></div>
+<script type="application/json" id="state">{"hero":null,"photos":[]}</script>
+<script id="code">
+(function(){
+var $=function(s){return document.querySelector(s)};
+var TITLE='S&S Home Remodeling';
+var PHONE='732-877-6470', EMAIL='snshomeremodeling@gmail.com', HOURS='Mon to Fri, 8:00 AM to 5:00 PM';
+var FB='https://www.facebook.com/profile.php?id=61577799877005', IG='https://www.instagram.com/sshomeremodelingnj/';
+var CATS=[
+ {id:'design',name:'Design-Build',blurb:'Plans, materials and construction handled together, from the first sketch to the finished room.'},
+ {id:'kitchen',name:'Kitchens',blurb:'Layouts, cabinets, counters and lighting that work as hard as you cook.'},
+ {id:'bath',name:'Bathrooms',blurb:'Tile, vanities and showers rebuilt to stay tight, dry and good looking.'},
+ {id:'basement',name:'Finished Basements',blurb:'Turn unused square footage into a family room, office or guest suite.'},
+ {id:'flooring',name:'Flooring',blurb:'Hardwood, vinyl plank and tile installed on a properly prepared surface.'},
+ {id:'painting',name:'Painting',blurb:'Careful prep, clean lines and finishes that hold up in everyday use.'},
+ {id:'roofing',name:'Roofing',blurb:'Repairs and replacements that protect everything underneath.'},
+ {id:'outdoor',name:'Patios and Decks',blurb:'Outdoor living space built with durable materials and solid footings.'},
+ {id:'general',name:'General Contracting',blurb:'One point of contact for projects of any size, large or small.'}
+];
+var TRUST=['Licensed and insured','Local expertise in Middlesex County','High-quality craftsmanship','Transparent pricing','Timely completion'];
+var STEPS=[
+ ['Consultation','We walk the space, listen to your goals and talk through budget.'],
+ ['Design and scope','You get plans, material choices and a clear price to review.'],
+ ['Build','Skilled tradespeople, durable materials and steady communication.'],
+ ['Final walk-through','We go through the finished work together before we call it done.']
+];
+var RESET=':root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}';
+var FONTS='<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap">';
+
+var state=JSON.parse($('#state').textContent);
+var draft=null, editing=false, canEdit=false, assetsApi=null, artifactApi=null;
+var filter='all', lbIndex=-1, busy=false, dirty=false, msg='', msgErr=false, uploadCat='kitchen';
+
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function src(id){return '/_blob/'+id}
+function catName(id){for(var i=0;i<CATS.length;i++)if(CATS[i].id===id)return CATS[i].name;return ''}
+function view(){return editing&&draft?draft:state}
+function photosOf(s,cat){return s.photos.filter(function(p){return cat==='all'||p.cat===cat})}
+
+function buildDoc(s){
+  var json=JSON.stringify(s).replace(/</g,'\\u003c');
+  return '<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>'+RESET+'</style></head><body>'
+   +'<title>'+TITLE+'</title><meta name="claude:viewport-fit-sides" content="cover">'+FONTS
+   +'<style id="css">'+$('#css').textContent+'</style><div id="app"></div><div id="panel"></div>'
+   +'<script type="application/json" id="state">'+json+'<\/script>'
+   +'<script id="code">'+$('#code').textContent+'<\/script></body></html>';
+}
+
+function frameHTML(id,label,dim){
+  return '<div class="frame">'+(id?'<img src="'+src(id)+'" alt="'+esc(label)+'">':'<div class="ph"><span>'+esc(label)+'</span></div>')+(dim?'<span class="dim">'+esc(dim)+'</span>':'')+'</div>';
+}
+
+function render(){
+  var s=view();
+  var heroId=s.hero||(s.photos[0]&&s.photos[0].id)||null;
+  var h='';
+  h+='<header class="top"><div class="wrap"><a class="brand" href="#top" data-act="top"><b>S&amp;S</b><span>Home<br>Remodeling</span></a>'
+   +'<nav class="nav" aria-label="Main"><a href="#services" data-go="services">Services</a><a href="#work" data-go="work">Projects</a><a href="#about" data-go="about">About</a><a href="#contact" data-go="contact">Contact</a></nav>'
+   +'<a class="btn solid small" href="tel:'+PHONE+'" data-go="contact">'+PHONE+'</a></div><div class="ruler" aria-hidden="true"></div></header>';
+  h+='<main id="top"><div class="hero"><div class="wrap"><div>'
+   +'<p class="mono">General contractor &middot; Middlesex County, NJ</p>'
+   +'<h1 style="margin-top:16px">Transforming spaces, <em>elevating homes.</em></h1>'
+   +'<p class="lede">Design and build for every room in your house, from the first consultation to the final walk-through. Serving Middlesex County and surrounding areas.</p>'
+   +'<div class="cta"><button class="btn solid" data-go="contact">Request a quote</button><button class="btn" data-go="work">See recent projects</button></div>'
+   +'<div class="meta"><span class="mono">Licensed and insured</span><span class="mono">'+esc(HOURS)+'</span></div></div>'
+   +frameHTML(heroId,'Your project photo','Recent work')+'</div></div>';
+
+  h+='<section id="services" style="padding-top:0"><div class="wrap"><div class="ruler" aria-hidden="true" style="margin-bottom:clamp(36px,6vw,72px)"></div>'
+   +'<div class="head"><h2>Every room, one contractor.</h2><p>From a single bathroom to a full-home remodel, we handle the design, materials and build.</p></div><div class="services">';
+  CATS.forEach(function(c){
+    var ph=photosOf(s,c.id), n=ph.length;
+    h+='<article class="svc">'+frameHTML(n?ph[0].id:null,c.name,null)+'<div class="txt"><h3>'+esc(c.name)+'</h3><p>'+esc(c.blurb)+'</p>'
+     +(n?'<button class="link" data-act="filter" data-cat="'+c.id+'">See '+n+(n===1?' project':' projects')+'</button>':'<button class="link" data-go="contact">Ask about '+esc(c.name.toLowerCase())+'</button>')
+     +'</div></article>';
+  });
+  h+='</div></div></section>';
+
+  var used=CATS.filter(function(c){return s.photos.some(function(p){return p.cat===c.id})});
+  var list=photosOf(s,filter);
+  if(filter!=='all'&&!list.length){filter='all';list=photosOf(s,'all')}
+  h+='<section id="work" style="background:var(--soft)"><div class="wrap"><div class="head"><h2>Recent projects</h2><p>A look at finished work around Middlesex County.</p></div>';
+  if(s.photos.length){
+    if(used.length>1){
+      h+='<div class="chips" role="group" aria-label="Filter projects"><button class="chip" data-act="filter" data-cat="all" aria-pressed="'+(filter==='all')+'">All</button>';
+      used.forEach(function(c){h+='<button class="chip" data-act="filter" data-cat="'+c.id+'" aria-pressed="'+(filter===c.id)+'">'+esc(c.name)+'</button>'});
+      h+='</div>';
+    }
+    h+='<div class="grid">';
+    list.forEach(function(p,i){
+      h+='<figure class="shot"><button data-act="open" data-i="'+i+'" aria-label="Open photo: '+esc(p.title||catName(p.cat))+'"><img loading="lazy" src="'+src(p.id)+'" alt="'+esc((p.title?p.title+', ':'')+catName(p.cat))+'"></button>'
+       +'<figcaption>'+(p.title?'<b>'+esc(p.title)+'</b>':'')+'<span>'+esc(catName(p.cat))+'</span></figcaption></figure>';
+    });
+    h+='</div>';
+  } else {
+    h+='<div class="empty"><h3>Project photos are on the way.</h3><p>New kitchens, bathrooms, basements and outdoor spaces will show up here as they are finished.</p>'
+     +(canEdit?'<button class="btn solid" data-act="edit">Add the first photos</button>':'<button class="btn" data-go="contact">Ask to see recent work</button>')+'</div>';
+  }
+  h+='</div></section>';
+
+  h+='<section id="about" class="about"><div class="wrap"><div><p class="mono">About S&amp;S</p><h2 style="margin:14px 0 22px;font-size:clamp(34px,5vw,58px)">Built on trust, backed by experience.</h2>'
+   +'<p>Every home can inspire and comfort the people in it. We listen to your goals, respect your budget and deliver results that improve how your space looks and works.</p>'
+   +'<p>We treat your home the way we would treat our own. Whether the job is a small upgrade or a full renovation, you get clear communication and careful work.</p>'
+   +'<ul class="checks">'+TRUST.map(function(t){return '<li>'+esc(t)+'</li>'}).join('')+'</ul></div>'
+   +'<div><p class="mono" style="margin-bottom:14px">How a project runs</p><div class="steps">'
+   +STEPS.map(function(x,i){return '<div class="step"><span class="n">0'+(i+1)+'</span><h3>'+esc(x[0])+'</h3><p>'+esc(x[1])+'</p></div>'}).join('')
+   +'</div></div></div></section>';
+
+  h+='<section id="contact" class="contact"><div class="wrap"><div class="head"><h2>Tell us about your project.</h2><p>Call or email with what you have in mind. We will talk through scope, timing and a price.</p></div>'
+   +'<div class="cards"><div class="card"><span class="mono">Call</span><span class="val">'+PHONE+'</span><div class="row"><a class="btn solid small" href="tel:'+PHONE+'">Call now</a><button class="btn small" data-act="copy" data-v="'+PHONE+'">Copy number</button></div></div>'
+   +'<div class="card"><span class="mono">Email</span><span class="val">'+EMAIL+'</span><div class="row"><a class="btn solid small" href="mailto:'+EMAIL+'?subject=Project%20estimate">Write an email</a><button class="btn small" data-act="copy" data-v="'+EMAIL+'">Copy address</button></div></div>'
+   +'<div class="card"><span class="mono">Hours</span><span class="val">'+esc(HOURS)+'</span><span style="opacity:.8">Serving Middlesex County, New Jersey and surrounding areas.</span></div></div></div></section></main>';
+
+  h+='<footer><div class="wrap"><span>&copy; 2026 S &amp; S Home Remodeling. All rights reserved.</span><span><a href="'+IG+'" target="_blank" rel="noopener">Instagram</a> &nbsp;&middot;&nbsp; <a href="'+FB+'" target="_blank" rel="noopener">Facebook</a> &nbsp;&middot;&nbsp; <a href="https://www.sshomeremodel.com/privacy-policy" target="_blank" rel="noopener">Privacy policy</a></span></div></footer>';
+  if(canEdit&&!editing)h+='<button class="btn editfab" data-act="edit">Edit photos</button>';
+  if(lbIndex>=0){
+    var L=photosOf(s,filter), p=L[lbIndex];
+    if(p)h+='<div class="lb" role="dialog" aria-modal="true" aria-label="Photo viewer"><div class="stage"><img src="'+src(p.id)+'" alt="'+esc(p.title||catName(p.cat))+'"></div>'
+      +'<div class="bar"><span>'+esc(p.title||'')+' <span class="mono" style="color:#fff;opacity:.8">'+esc(catName(p.cat))+'</span></span><span style="display:flex;gap:8px"><button class="btn small" data-act="prev">Previous</button><button class="btn small" data-act="next">Next</button><button class="btn small" data-act="close" id="lbclose">Close</button></span></div></div>';
+  }
+  $('#app').innerHTML=h;
+  if(lbIndex>=0){var cb=$('#lbclose');if(cb)cb.focus()}
+}
+
+function renderPanel(){
+  var P=$('#panel');
+  if(!editing){P.innerHTML='';return}
+  var s=draft;
+  var opts=function(sel){return CATS.map(function(c){return '<option value="'+c.id+'"'+(c.id===sel?' selected':'')+'>'+esc(c.name)+'</option>'}).join('')};
+  var h='<div class="panel" role="dialog" aria-label="Edit photos"><header><h3>Edit photos</h3><button class="btn small" data-act="cancel">Close</button></header><div class="body">'
+   +'<label class="f" for="upcat">New photos go in<select id="upcat">'+opts(uploadCat)+'</select></label>'
+   +'<div class="drop" id="drop"><span>Drag photos here, or choose them from your '+(window.matchMedia&&matchMedia('(pointer:coarse)').matches?'phone':'computer')+'.</span>'
+   +'<input type="file" id="files" accept="image/*" multiple><label for="files" class="btn solid" style="cursor:pointer">Choose photos</label></div>'
+   +'<div class="items">';
+  if(!s.photos.length)h+='<p style="color:var(--muted)">No photos yet. Added photos show up here and on the page behind this panel.</p>';
+  s.photos.forEach(function(p,i){
+    var isHero=s.hero===p.id;
+    h+='<div class="item"><img src="'+src(p.id)+'" alt=""><div class="ctl">'
+     +'<input type="text" id="t'+i+'" data-t="'+i+'" value="'+esc(p.title||'')+'" placeholder="Caption, for example: Kitchen in Edison" aria-label="Caption">'
+     +'<select id="c'+i+'" data-c="'+i+'" aria-label="Category">'+opts(p.cat)+'</select>'
+     +'<div class="acts"><button class="btn small" data-act="hero" data-i="'+i+'"'+(isHero?' disabled':'')+'>'+(isHero?'Main photo':'Make main photo')+'</button><button class="btn small" data-act="del" data-i="'+i+'">Remove</button></div></div></div>';
+  });
+  h+='</div></div><div class="foot"><span class="status'+(msgErr?' err':'')+'" role="status" aria-live="polite">'+esc(msg)+'</span>'
+   +'<button class="btn solid" data-act="publish"'+((dirty&&!busy)?'':' disabled')+'>'+(busy?'Working...':'Publish changes')+'</button><button class="btn" data-act="cancel">Discard</button></div></div>';
+  P.innerHTML=h;
+}
+
+function say(t,err){msg=t;msgErr=!!err;var e=$('#panel .status');if(e){e.textContent=t;e.className='status'+(err?' err':'')}}
+function toast(t){var d=document.createElement('div');d.className='toast';d.setAttribute('role','status');d.textContent=t;document.body.appendChild(d);setTimeout(function(){d.remove()},2200)}
+
+function shrink(file){
+  return new Promise(function(res,rej){
+    if(!window.createImageBitmap){return rej(new Error('nobitmap'))}
+    createImageBitmap(file).then(function(bm){
+      var m=2200,r=Math.min(1,m/Math.max(bm.width,bm.height)),w=Math.round(bm.width*r),h=Math.round(bm.height*r);
+      var c=document.createElement('canvas');c.width=w;c.height=h;
+      var x=c.getContext('2d');x.drawImage(bm,0,0,w,h);
+      c.toBlob(function(b){b?res(b):rej(new Error('blob'))},'image/jpeg',0.86);
+    }).catch(rej);
+  });
+}
+async function addFiles(fl){
+  var files=Array.prototype.slice.call(fl).filter(function(f){return /^image\//.test(f.type)||!f.type});
+  if(!files.length){say('Pick image files (JPG, PNG or WebP).',true);return}
+  busy=true;renderPanel();
+  var ok=0;
+  for(var i=0;i<files.length;i++){
+    say('Uploading '+(i+1)+' of '+files.length+'...');
+    try{
+      var blob,type='image/jpeg';
+      try{blob=await shrink(files[i])}catch(e){
+        if(/^image\/(jpeg|png|webp|gif)$/.test(files[i].type)){blob=files[i];type=files[i].type}else throw {code:'unsupported_type'};
+      }
+      var r=await assetsApi.upload(blob,{type:type});
+      draft.photos.unshift({id:r.id,cat:uploadCat,title:''});
+      if(!draft.hero)draft.hero=r.id;
+      ok++;dirty=true;
+    }catch(e){
+      var c=e&&e.code;
+      say(c==='unsupported_type'?'That file type is not supported. Use JPG, PNG or WebP.':c==='quota_or_state'?'The photo storage is full. Remove some photos first.':c==='too_large'?'One photo is too large.':c==='rate_limited'?'Too many uploads at once. Wait a moment and try again.':'Upload failed. Check your connection and try again.',true);
+      break;
+    }
+  }
+  busy=false;
+  if(ok&&!msgErr)msg=ok+(ok===1?' photo added.':' photos added.')+' Press Publish changes to put them on the site.';
+  render();renderPanel();
+}
+
+async function publish(){
+  if(!artifactApi||busy)return;
+  busy=true;renderPanel();say('Publishing...');
+  try{await artifactApi.publish(buildDoc(draft))}
+  catch(e){
+    busy=false;var c=e&&e.code;
+    if(c==='conflict'){msg='';return}
+    msgErr=true;msg=c==='not_writer'||c==='not_granted'?'You can view this page but not publish changes. Ask the owner for editor access.':c==='too_large'?'The page is too large to publish. Remove some photos.':c==='rate_limited'?'Publishing too often. Wait a minute and try again.':'Publishing failed. Try again.';
+    renderPanel();
+  }
+}
+
+function openEdit(){draft=JSON.parse(JSON.stringify(state));editing=true;dirty=false;msg='';msgErr=false;render();renderPanel()}
+function closeEdit(){editing=false;draft=null;dirty=false;msg='';render();renderPanel()}
+function go(id){var e=document.getElementById(id);if(e)e.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'start'})}
+
+document.addEventListener('click',function(ev){
+  var g=ev.target.closest('[data-go]');
+  if(g){ev.preventDefault();go(g.getAttribute('data-go'));return}
+  var a=ev.target.closest('[data-act]');if(!a)return;
+  var act=a.getAttribute('data-act'),i=+a.getAttribute('data-i');
+  if(act==='top'){ev.preventDefault();window.scrollTo(0,0)}
+  else if(act==='filter'){filter=a.getAttribute('data-cat');render();if(a.closest('.svc'))go('work')}
+  else if(act==='open'){lbIndex=i;render()}
+  else if(act==='close'){lbIndex=-1;render()}
+  else if(act==='prev'||act==='next'){var n=photosOf(view(),filter).length;lbIndex=(lbIndex+(act==='next'?1:-1)+n)%n;render()}
+  else if(act==='copy'){var v=a.getAttribute('data-v');(navigator.clipboard&&navigator.clipboard.writeText?navigator.clipboard.writeText(v):Promise.reject()).then(function(){toast('Copied '+v)},function(){toast('Select and copy: '+v)})}
+  else if(act==='edit')openEdit();
+  else if(act==='cancel')closeEdit();
+  else if(act==='publish')publish();
+  else if(act==='hero'){draft.hero=draft.photos[i].id;dirty=true;render();renderPanel()}
+  else if(act==='del'){
+    var p=draft.photos[i];draft.photos.splice(i,1);
+    if(draft.hero===p.id)draft.hero=draft.photos[0]?draft.photos[0].id:null;
+    dirty=true;render();renderPanel();
+    if(assetsApi)assetsApi.delete(p.id).catch(function(){});
+  }
+});
+document.addEventListener('input',function(ev){
+  var t=ev.target;
+  if(t.hasAttribute&&t.hasAttribute('data-t')&&draft){draft.photos[+t.getAttribute('data-t')].title=t.value;if(!dirty){dirty=true;var b=$('[data-act="publish"]');if(b)b.disabled=busy}}
+});
+document.addEventListener('change',function(ev){
+  var t=ev.target;
+  if(t.id==='upcat'){uploadCat=t.value}
+  else if(t.id==='files'){if(t.files&&t.files.length)addFiles(t.files);t.value=''}
+  else if(t.hasAttribute&&t.hasAttribute('data-c')&&draft){draft.photos[+t.getAttribute('data-c')].cat=t.value;dirty=true;render();renderPanel()}
+});
+document.addEventListener('dragover',function(ev){var d=ev.target.closest&&ev.target.closest('#drop');if(d){ev.preventDefault();d.classList.add('over')}});
+document.addEventListener('dragleave',function(ev){var d=ev.target.closest&&ev.target.closest('#drop');if(d)d.classList.remove('over')});
+document.addEventListener('drop',function(ev){var d=ev.target.closest&&ev.target.closest('#drop');if(d){ev.preventDefault();d.classList.remove('over');if(ev.dataTransfer&&ev.dataTransfer.files.length)addFiles(ev.dataTransfer.files)}});
+document.addEventListener('keydown',function(ev){
+  if(lbIndex<0)return;
+  if(ev.key==='Escape'){lbIndex=-1;render()}
+  else if(ev.key==='ArrowRight'||ev.key==='ArrowLeft'){var n=photosOf(view(),filter).length;lbIndex=(lbIndex+(ev.key==='ArrowRight'?1:-1)+n)%n;render()}
+});
+
+render();
+if(window.claude&&claude.use){
+  Promise.all([claude.use('assets').catch(function(){return null}),claude.use('artifact').catch(function(){return null})]).then(function(r){
+    assetsApi=r[0];artifactApi=r[1];
+    if(assetsApi&&artifactApi){canEdit=true;render()}
+  });
+}
+})();
+</script>
